@@ -1,0 +1,284 @@
+body {
+  display: flex;
+}
+
+.container {
+  max-width: 100%;
+  margin-left: 13rem;
+}
+
+header {
+  max-width: 1200px;
+
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.section {
+  max-width: 1200px;
+
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+
+}
+
+.sectionContainer {
+  margin-top: 60px;
+}
+
+.headerSection {
+  height: 7rem;
+  width: 55rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+fieldset {
+  width: 55rem;
+
+  border-style: none;
+}
+
+input {
+  width: 10rem;
+  height: 1.5rem;
+
+  border-radius: 5px;
+  border-style: none;
+  padding-left: 10px;
+
+  background: #202024;
+}
+
+input::placeholder {
+  color: white;
+}
+
+.spanTable {
+  color: white;
+}
+
+.UsuarioInput {
+  background: white;
+}
+.UsuarioInput::placeholder {
+  color: gray;
+}
+
+.buttonBuscar,
+.buttonEdit {
+  border-radius: 0.2rem;
+  border: 0;
+  height: 1.5rem;
+  width: 5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  font-size: 1rem;
+
+  background: #eba417;
+  color: #121214;
+
+  transition: 0.2s;
+}
+
+.button {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+button:hover {
+  filter: brightness(0.8);
+}
+
+.buttonEdit {
+  margin-left: auto;
+}
+
+.buttonAdd {
+  background: #414149;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: none;
+
+  border-radius: 50%;
+
+  margin-right: 25px;
+}
+
+button.buttonDelete {
+  background: #202024;
+  color: white;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin: 0 auto;
+  border: none;
+
+  border-radius: 50%;
+}
+
+.imgDelete {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+table {
+  margin-top: 20px;
+  width: 55rem;
+}
+
+tbody {
+  background: #202024;
+}
+
+th {
+  padding: 10px 0;
+}
+
+.tableInfo td {
+  padding: 15px 0;
+  width: 11rem;
+}
+
+.tableInfo td span {
+  margin-left: 5px;
+}
+
+.formBuscarUsuario {
+  background: #414149;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: top;
+  justify-content: center;
+}
+
+.inputBuscar {
+  display: flex;
+}
+
+.inputBuscar input {
+  width: 20rem;
+}
+
+.buttonBuscar {
+  margin-left: 10px;
+
+  color: black;
+}
+
+.imgAgregar {
+  background: #414149;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.svgAgregar {
+  height: 2rem;
+  width: 2rem;
+
+  margin-right: 10px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+.spanBuscarUser {
+  font-weight: bold;
+}
+
+.logoTipo {
+  height: 4rem;
+  width: 4rem;
+}
+
+.imgServicios {
+  height: 6rem;
+  width: 7rem;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+
+  transition: 0.2s;
+}
+
+a.navHeader {
+  color: #9b9b9b;
+  padding: 1rem 2rem;
+}
+
+a.navHeader:hover {
+  color: white;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100vh;
+  width: 13rem;
+  background: #202024;
+}
+
+.sidebarHeader {
+  height: 10rem;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border-bottom: solid 1px;
+  border-color: #414149;
+}
+
+.sidebarOption {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+a.sidebarOptions {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 20px 0 20px 5px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.sidebarOptions:hover {
+  color: #eba417;
+}
+
+.fotoPerfil {
+  width: 6rem;
+  height: 6rem;
+
+  border-radius: 50px;
+}
+
+.imgSideBar {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  margin: 0 15px 0 auto;
+}
+
+/* modal */
+.modal {
+  color: black;
+}

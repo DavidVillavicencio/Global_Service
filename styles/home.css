@@ -1,0 +1,77 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.header {
+  height: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+button {
+  height: 2.5rem;
+  padding: 0 1.5rem;
+
+  border-radius: 1.5rem;
+  border: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+}
+
+button.login {
+  background: #121214;
+  color: white;
+}
+
+button.registrarse {
+  background: #eba417;
+  color: #121214;
+}
+
+button:hover {
+  filter: brightness(0.8);
+}
+
+section {
+  height: calc(100vh - 5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+img {
+  height: 30rem;
+  weight: 20rem;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 4rem;
+  font-weight: 900;
+}
+
+.logoTipo {
+  height: 4rem;
+  width: 4rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

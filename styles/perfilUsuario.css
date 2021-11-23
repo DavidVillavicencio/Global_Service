@@ -1,0 +1,97 @@
+.container {
+  height: 100vh;
+
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+
+  display: block;
+}
+
+.sidebar {
+  width: 16rem;
+  background: #202024;
+}
+
+.sidebarHeader {
+  height: 10rem;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border-bottom: solid 1px;
+  border-color: #414149;
+}
+
+.sidebarOptions {
+  margin-top: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebarOptions:hover {
+  color: #eba417;
+}
+
+.fotoPerfil {
+  width: 6rem;
+  height: 6rem;
+
+  border-radius: 50px;
+}
+
+.imgSideBar {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  margin-right: 15px;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+table {
+  width: 60rem;
+  height: 20rem;
+}
+
+td {
+  border-right: 1px solid #414149;
+}
+
+td:last-child {
+  border-right: none;
+}
+
+.theader {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.contenidoTabla {
+  display: flex;
+  align-items: center;
+}
+
+.imagenTabla {
+  width: 5rem;
+  height: 5rem;
+  margin-left: 10px;
+}
+
+span {
+  margin-left: 10px;
+}
