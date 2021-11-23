@@ -1,3 +1,6 @@
+html {
+  height: 100%;
+}
 body {
   display: flex;
 }
@@ -25,7 +28,6 @@ header {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-
 }
 
 .sectionContainer {
@@ -280,5 +282,5 @@ a.sidebarOptions {
 
 /* modal */
 .modal {
-  color: black;
+  color: white;
 }
