@@ -74,7 +74,7 @@
 
           <div class="imgAgregar">
 
-            <button class="buttonAdd" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button class="buttonAdd" data-bs-toggle="modal" data-bs-target="#modalAgregar">
               <img class="svgAgregar" src="../public/img/agregar-usuario.svg" alt="Agregar Usuario">
             </button>
 
@@ -120,33 +120,7 @@
               </td>
               <td>
                 <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-            <!-- 
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
+                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar">
                     Editar
                   </button>
                   <button class="buttonDelete" type="submit">
@@ -157,343 +131,6 @@
               </td>
             </tr>
 
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr> -->
-            <!-- 
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr>
-
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
-
-              </td>
-            </tr> -->
           </tbody>
         </table>
       </section>
@@ -503,41 +140,84 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+  <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
       <div class="modal-content bg-dark">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Agregar usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <p class="hola">modallll 1</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        <form>
+
+          <div class="modal-body">
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputNombre" class="form-label-sm">Nombre</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombre">
+            </div>
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputApellido">Apellido</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellido">
+            </div>
+
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailHelp" placeholder="Email@email.com">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputPassword">Contraseña</label>
+              <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="reset" class="btn btn-secondary">Limpiar</button>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </div>
+        </form>
+
       </div>
     </div>
   </div>
 
 
   <!-- Modal 2 -->
-  <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+  <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
       <div class="modal-content bg-dark">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Editar usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <p>modal 2</p>
-          <p>asdasdsad</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-secondary">Hola</button>
-        </div>
+        <form>
+
+          <div class="modal-body">
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputNombre" class="form-label-sm">Nombre</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombre">
+            </div>
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputApellido">Apellido</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellido">
+            </div>
+
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailHelp" placeholder="Email@email.com">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputPassword">Contraseña</label>
+              <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="reset" class="btn btn-secondary">Limpiar</button>
+            <button type="submit" class="btn btn-primary">Editar</button>
+          </div>
+        </form>
+
       </div>
     </div>
   </div>
