@@ -97,8 +97,8 @@ class Usuario extends Conexion{
         $consultaUsuario->close();
 
         if($cuantos==1){
-            $sql = "UPDATE usuarios SET nombre=?,apellido=?,email=?,contraseña=? WHERE id=?;";
-            $modificar = $this->prepare($sql);
+            $sqlModificar = "UPDATE usuarios SET nombre=?,apellido=?,email=?,contraseña=? WHERE id=?;";
+            $modificar = $this->prepare($sqlModificar);
             $nombre = $data['nombre'];
             $apellido = $data['apellido'];
             $email = $data['email'];
@@ -132,8 +132,8 @@ class Usuario extends Conexion{
         $consultaUsuario->close();
 
         if($cuantos==1){
-            $sql = "DELETE FROM usuarios  WHERE id=?;";
-            $eliminar = $this->prepare($sql);
+            $sqlEliminar = "DELETE FROM usuarios  WHERE id=?;";
+            $eliminar = $this->prepare($sqlEliminar);
             $id = $data['id'];
             $eliminar->bind_param('i',$codigo);
             $eliminar->execute();
