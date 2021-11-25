@@ -6,7 +6,6 @@ if (isset($_GET['mensaje'])) {
   $mensaje = '';
 }
 
-
 ?>
 
 
@@ -34,7 +33,8 @@ if (isset($_GET['mensaje'])) {
   <div class="sidebar">
     <div class="sidebarHeader">
       <img class="fotoPerfil" src="../public/img/perfilUsuario.jpg" alt="">
-      <h4>Pepe</h4>
+
+      <h4>pepe</h4>
     </div>
 
     <nav class="sidebarOption">
@@ -74,17 +74,18 @@ if (isset($_GET['mensaje'])) {
     <div class="section">
       <section class="sectionContainer">
         <div class="headerSection">
-          <div class="formBuscarUsuario" action="post">
-            <label for="nomUsuario">
+          <!-- Buscar usuario -->
+          <form class="formBuscarUsuario" method="post" action="./mantenedorUsuario.php">
+            <label for="buscador">
               <span class="spanBuscarUser">Buscar usuario: </span>
             </label>
 
             <div class="inputBuscar">
-              <input class="UsuarioInput" type="text" name="nomUsuario" id="nomUsuario" placeholder="Nombre">
-              <button class="buttonBuscar" type="sumbit"> Buscar </button>
+              <input class="UsuarioInput" type="text" id="buscador" placeholder="Nombre" requiered>
+              <button class="buttonBuscar" type="submit" onClick="botonBuscar()"> Buscar </button>
 
             </div>
-          </div>
+          </form>
 
           <div class="imgAgregar">
 
@@ -119,31 +120,55 @@ if (isset($_GET['mensaje'])) {
 
           <tbody>
 
-            <tr class="tableInfo">
-              <td>
-                <span>Felipe</span>
-              </td>
-              <td>
-                <span>Di Vanni</span>
-              </td>
-              <td>
-                <span>email@hotmail.com</span>
-              </td>
-              <td>
-                <span>*********</span>
-              </td>
-              <td>
-                <div class="button">
-                  <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar">
-                    Editar
-                  </button>
-                  <button class="buttonDelete" type="submit">
-                    <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                  </button>
-                </div>
 
-              </td>
-            </tr>
+            <?php
+            include("../Recursos/Clases/usuario.php");
+
+            if (isset($_POST['buscador'])) {
+
+
+              $nombre = $_POST['buscador'];
+              $params = array(
+                'nombre' => $nombre
+              );
+
+              $user = json_decode($usuario->buscar($params));
+
+              foreach ($user as $us) {
+
+            ?>
+                <tr class="tableInfo">
+                  <td>
+                    <span><?php echo $us->nombre ?></span>
+                  </td>
+                  <td>
+                    <span><?php echo $us->apellido ?></span>
+                  </td>
+                  <td>
+                    <span><?php echo $us->email ?></span>
+                  </td>
+                  <td>
+                    <span><?php echo $us->contraseña ?></span>
+                  </td>
+                  <td>
+                    <div class="button">
+                      <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar">
+                        Editar
+                      </button>
+                      <button class="buttonDelete" type="submit">
+                        <img class="imgDelete" src="../public/img/delete.svg" alt="">
+                      </button>
+                    </div>
+
+                  </td>
+                </tr>
+
+            <?php
+              }
+            } else {
+            }
+
+            ?>
 
           </tbody>
         </table>
@@ -240,6 +265,14 @@ if (isset($_GET['mensaje'])) {
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+  <script>
+    function botonBuscar() {
+      let a = document.querySelector("#buscador")
+      a.setAttribute("name", "buscador")
+    }
+  </script>
+
 
 </body>
 
