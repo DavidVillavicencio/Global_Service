@@ -81,7 +81,7 @@ if (isset($_GET['mensaje'])) {
             </label>
 
             <div class="inputBuscar">
-              <input class="UsuarioInput" type="text" id="buscador" placeholder="Nombre" requiered>
+              <input class="UsuarioInput" type="text" id="buscador" placeholder="Nombre" required>
               <button class="buttonBuscar" type="submit" onClick="botonBuscar()"> Buscar </button>
 
             </div>
@@ -122,9 +122,10 @@ if (isset($_GET['mensaje'])) {
 
 
             <?php
-            include("../Recursos/Clases/usuario.php");
+
 
             if (isset($_POST['buscador'])) {
+              include("../Recursos/Clases/usuario.php");
 
 
               $nombre = $_POST['buscador'];
@@ -136,36 +137,41 @@ if (isset($_GET['mensaje'])) {
 
               foreach ($user as $us) {
 
-            ?>
-                <tr class="tableInfo">
-                  <td>
-                    <span><?php echo $us->nombre ?></span>
-                  </td>
-                  <td>
-                    <span><?php echo $us->apellido ?></span>
-                  </td>
-                  <td>
-                    <span><?php echo $us->email ?></span>
-                  </td>
-                  <td>
-                    <span><?php echo $us->contraseña ?></span>
-                  </td>
-                  <td>
-                    <div class="button">
-                      <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar">
-                        Editar
-                      </button>
-                      <button class="buttonDelete" type="submit">
-                        <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                      </button>
-                    </div>
+                if (!($us->email == "")) {
 
-                  </td>
-                </tr>
+            ?>
+                  <tr class="tableInfo">
+                    <td>
+                      <span><?php echo $us->nombre ?></span>
+                    </td>
+                    <td>
+                      <span><?php echo $us->apellido ?></span>
+                    </td>
+                    <td>
+                      <span><?php echo $us->email ?></span>
+                    </td>
+                    <td>
+                      <span><?php echo $us->contraseña ?></span>
+                    </td>
+                    <td>
+                      <div class="button">
+
+                        <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" onClick='botonEditar("<?php echo $us->nombre . "&" . $us->apellido . "&" . $us->email . "&" . $us->contraseña  ?>")'>
+                          Editar
+                        </button>
+                        <button class="buttonDelete" type="submit">
+                          <img class="imgDelete" src="../public/img/delete.svg" alt="">
+                        </button>
+                      </div>
+
+                    </td>
+                  </tr>
 
             <?php
+                }
               }
             } else {
+              echo "holaaa";
             }
 
             ?>
@@ -220,7 +226,7 @@ if (isset($_GET['mensaje'])) {
   </div>
 
 
-  <!-- Modal 2 -->
+  <!-- Modal Editar -->
   <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalLabelEditar" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content bg-dark">
@@ -229,25 +235,24 @@ if (isset($_GET['mensaje'])) {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form method="post" action="">
-
           <div class="modal-body">
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputNombre" class="form-label-sm">Nombre</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombreAgregar">
+              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombreEditar">
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputApellido">Apellido</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellidoAgregar">
+              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellidoEditar">
             </div>
 
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputEmail">Email</label>
-              <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailHelp" placeholder="Email@email.com">
+              <input type="email" class="form-control form-control-sm" id="inputEmailEditar" aria-describedby="emailHelp" placeholder="Email@email.com">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputPassword">Contraseña</label>
-              <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Contraseña">
+              <input type="password" class="form-control form-control-sm" id="inputPasswordEditar" placeholder="Contraseña">
             </div>
           </div>
           <div class="modal-footer">
@@ -268,8 +273,26 @@ if (isset($_GET['mensaje'])) {
 
   <script>
     function botonBuscar() {
-      let a = document.querySelector("#buscador")
-      a.setAttribute("name", "buscador")
+      let buscar = document.querySelector("#buscador")
+      buscar.setAttribute("name", "buscador")
+    }
+
+    let valor;
+
+    function botonEditar(valor) {
+      let nombreEditar = document.querySelector("#inputNombreEditar")
+      let apellidoEditar = document.querySelector("#inputApellidoEditar")
+      let emailEditar = document.querySelector("#inputEmailEditar")
+      let passwEditar = document.querySelector("#inputPasswordEditar")
+
+      let arrayButonEdit = valor.split("&")
+
+
+      nombreEditar.setAttribute("value", arrayButonEdit[0])
+      apellidoEditar.setAttribute("value", arrayButonEdit[1])
+      emailEditar.setAttribute("value", arrayButonEdit[2])
+      passwEditar.setAttribute("value", arrayButonEdit[3])
+
     }
   </script>
 
