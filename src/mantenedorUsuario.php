@@ -156,12 +156,16 @@ if (isset($_GET['mensaje'])) {
                     <td>
                       <div class="button">
 
-                        <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" onClick='botonEditar("<?php echo $us->nombre . "&" . $us->apellido . "&" . $us->email . "&" . $us->contraseña  ?>")'>
+                        <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" onClick='botonEditar("<?php echo $us->id . "&" . $us->nombre . "&" . $us->apellido . "&" . $us->email . "&" . $us->contraseña  ?>")'>
                           Editar
                         </button>
-                        <button class="buttonDelete" type="submit">
-                          <img class="imgDelete" src="../public/img/delete.svg" alt="">
-                        </button>
+
+                        <form class="formButtonDelete" method="post" action="../Recursos/Funciones/usuarioFx.php">
+                          <input type="hidden" name="id" value="<?php echo $us->id ?>">
+                          <button class="buttonDelete" type="submit" name="eliminar">
+                            <img class="imgDelete" src="../public/img/delete.svg">
+                          </button>
+                        </form>
                       </div>
 
                     </td>
@@ -170,8 +174,6 @@ if (isset($_GET['mensaje'])) {
             <?php
                 }
               }
-            } else {
-              echo "holaaa";
             }
 
             ?>
@@ -234,31 +236,35 @@ if (isset($_GET['mensaje'])) {
           <h5 class="modal-title" id="modalLabelEditar">Editar usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="post" action="">
+        <form method="post" action="../Recursos/Funciones/usuarioFx.php">
+
           <div class="modal-body">
+
+            <input type="hidden" name="id" id="inputIdEditar">
+
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputNombre" class="form-label-sm">Nombre</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombreEditar">
+              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombreEditar" name="nombre">
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputApellido">Apellido</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellidoEditar">
+              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellidoEditar" name="apellido">
             </div>
 
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputEmail">Email</label>
-              <input type="email" class="form-control form-control-sm" id="inputEmailEditar" aria-describedby="emailHelp" placeholder="Email@email.com">
+              <input type="email" class="form-control form-control-sm" id="inputEmailEditar" aria-describedby="emailHelp" placeholder="Email@email.com" name="email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputPassword">Contraseña</label>
-              <input type="password" class="form-control form-control-sm" id="inputPasswordEditar" placeholder="Contraseña">
+              <input type="password" class="form-control form-control-sm" id="inputPasswordEditar" placeholder="Contraseña" name="contraseña">
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <button type="reset" class="btn btn-secondary">Limpiar</button>
-            <button type="submit" class="btn btn-primary">Editar</button>
+            <button type="submit" name="modificar" class="btn btn-primary">Editar</button>
           </div>
         </form>
 
@@ -280,6 +286,7 @@ if (isset($_GET['mensaje'])) {
     let valor;
 
     function botonEditar(valor) {
+      let idEditar = document.querySelector("#inputIdEditar")
       let nombreEditar = document.querySelector("#inputNombreEditar")
       let apellidoEditar = document.querySelector("#inputApellidoEditar")
       let emailEditar = document.querySelector("#inputEmailEditar")
@@ -287,11 +294,11 @@ if (isset($_GET['mensaje'])) {
 
       let arrayButonEdit = valor.split("&")
 
-
-      nombreEditar.setAttribute("value", arrayButonEdit[0])
-      apellidoEditar.setAttribute("value", arrayButonEdit[1])
-      emailEditar.setAttribute("value", arrayButonEdit[2])
-      passwEditar.setAttribute("value", arrayButonEdit[3])
+      idEditar.setAttribute("value", arrayButonEdit[0])
+      nombreEditar.setAttribute("value", arrayButonEdit[1])
+      apellidoEditar.setAttribute("value", arrayButonEdit[2])
+      emailEditar.setAttribute("value", arrayButonEdit[3])
+      passwEditar.setAttribute("value", arrayButonEdit[4])
 
     }
   </script>

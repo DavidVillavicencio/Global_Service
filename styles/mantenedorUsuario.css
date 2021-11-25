@@ -123,9 +123,8 @@ button.buttonDelete {
   color: white;
   width: 1.8rem;
   height: 1.8rem;
-  margin: 0 auto;
   border: none;
-
+  margin: 0 auto;
   border-radius: 50%;
 }
 

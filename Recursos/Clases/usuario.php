@@ -89,7 +89,7 @@ class Usuario extends Conexion
     function modificar()
     {
         $data = (count(func_get_args()) > 0) ? func_get_args()[0] : func_get_args();
-        $sql = "SELECT count(id) as cuantos FROM usuarios WHERE id = ?;";
+        $sql = "SELECT count(id) FROM usuarios WHERE id = ?;";
         $consultaUsuario = $this->prepare($sql);
         $id = intval($data['id']);
         $consultaUsuario->bind_param('i', $id);
@@ -105,7 +105,8 @@ class Usuario extends Conexion
             $apellido = $data['apellido'];
             $email = $data['email'];
             $contraseña = $data['contraseña'];
-            $modificar->bind_param('ssss', $nombre, $apellido, $email, $contraseña);
+            $id = intval($data['id']);
+            $modificar->bind_param('ssssi', $nombre, $apellido, $email, $contraseña, $id);
             $modificar->execute();
             $modificar->close();
 
@@ -122,10 +123,11 @@ class Usuario extends Conexion
         }
         return json_encode($info);
     }
+
     function eliminar()
     {
         $data = (count(func_get_args()) > 0) ? func_get_args()[0] : func_get_args();
-        $sql = "SELECT count(id) as cuantos FROM usuarios WHERE id = ?;";
+        $sql = "SELECT count(id) FROM usuarios WHERE id = ?;";
         $consultaUsuario = $this->prepare($sql);
         $id = intval($data['id']);
         $consultaUsuario->bind_param('i', $id);
@@ -135,24 +137,22 @@ class Usuario extends Conexion
         $consultaUsuario->close();
 
         if ($cuantos == 1) {
-            $sqlEliminar = "DELETE FROM usuarios  WHERE id=?;";
+            $sqlEliminar = "DELETE FROM usuarios WHERE id=?;";
             $eliminar = $this->prepare($sqlEliminar);
-            $id = $data['id'];
-            $eliminar->bind_param('i', $codigo);
+            $id = intval($data['id']);
+            $eliminar->bind_param('i', $id);
             $eliminar->execute();
             $eliminar->close();
 
             $info = array(
-                'estado' => true,
-                'mensaje' => 'El usuario a sido eliminado correctamente.',
-                'id' => $id
+                'mensaje' => "Buenaaa :D"
             );
         } else {
             $info = array(
-                'estado' => false,
-                'mensaje' => 'No se a podido eliminar el Usuario.'
+                'mensaje' => "No lo lograste D:"
             );
         }
+        return json_encode($info);
     }
 }
 $usuario = new Usuario;

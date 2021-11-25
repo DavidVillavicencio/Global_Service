@@ -53,3 +53,48 @@ if (isset($_POST['buscador'])) {
     header('location:../../src/mantenedorUsuario.php');
   }
 }
+
+if (isset($_POST['modificar'])) {
+
+  $id = $_POST['id'];
+  $nombre = $_POST['nombre'];
+  $apellido = $_POST['apellido'];
+  $email = $_POST['email'];
+  $contraseña = $_POST['contraseña'];
+  
+  $params = array(
+    'id' => $id,
+    'nombre' => $nombre,
+    'apellido' => $apellido,
+    'email' => $email,
+    'contraseña' => $contraseña,
+  );
+
+  $respuesta = json_decode($usuario->modificar($params));
+
+  if ($respuesta->estado) {
+    $params = array(
+      'id' => $respuesta->id
+    );
+
+    $mensaje = '<p class="alert alert-success"><b>' . $respuesta->mensaje . '</b></p>';
+  } else {
+    $mensaje = '<p class="alert alert-danger"><b>' . $respuesta->mensaje . '</b></p>';
+  }
+
+  header('location:../../src/mantenedorUsuario.php?' . $mensaje);
+}
+
+if (isset($_POST['eliminar'])) {
+
+  $id = $_POST['id'];
+  $params = array(
+    'id' => $id
+  );
+
+  $respuesta = json_decode($usuario->eliminar($params));
+
+  if (isset($respuesta)) {
+    header('Location:../../src/mantenedorUsuario.php');
+  }
+}
