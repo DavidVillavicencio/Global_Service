@@ -9,10 +9,10 @@ class Usuario extends Conexion{
 
     function agregar(){
         $data = (count(func_get_args())>0)?func_get_args()[0]:func_get_args();
-        $sql = "SELECT count(id) as cuantos FROM usuarios WHERE id = ?;";   //aqui podria ser en vez de id el email, considerandolo unico, como clave unica.
+        $sql = "SELECT count(id) as cuantos FROM usuarios WHERE email = ?;";   //aqui podria ser en vez de id el email, considerandolo unico, como clave unica.
         $consultaUsuario = $this->prepare($sql);
-        $id = intval($data['id']);
-        $consultaUsuario->bind_param('i',$id);
+        $consultaUsuario->bind_param('s',$email);
+        $email = $data['email'];
         $consultaUsuario->execute();
         $consultaUsuario->bind_result($cuantos);
         $consultaUsuario->fetch();

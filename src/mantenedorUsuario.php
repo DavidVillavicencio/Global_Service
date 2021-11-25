@@ -1,3 +1,15 @@
+<?php
+
+if (isset($_GET['mensaje'])) {
+  $mensaje = $_GET['mensaje'];
+} else {
+  $mensaje = '';
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +54,9 @@
   </div>
 
   <div class="container">
-
+    <?php
+    echo $mensaje;
+    ?>
     <header>
       <nav>
         <a class="navHeader" href="#">Home</a>
@@ -139,40 +153,40 @@
     </footer>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal agregar -->
+  <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalLabelAgregar" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content bg-dark">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar usuario</h5>
+          <h5 class="modal-title" id="modalLabelAgregar">Agregar usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form>
+        <form method="post" action="../Recursos/Funciones/usuarioFx.php">
 
           <div class="modal-body">
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputNombre" class="form-label-sm">Nombre</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombre">
+              <input class="form-control form-control-sm" type="text" name="nombre" placeholder="Nombre" id="inputNombre">
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputApellido">Apellido</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellido">
+              <input class="form-control form-control-sm" type="text" name="apellido" placeholder="Apellido" id="inputApellido">
             </div>
 
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputEmail">Email</label>
-              <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailHelp" placeholder="Email@email.com">
+              <input type="email" name="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailHelp" placeholder="Email@email.com">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputPassword">Contraseña</label>
-              <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Contraseña">
+              <input type="password" name="contraseña" class="form-control form-control-sm" id="inputPassword" placeholder="Contraseña">
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <button type="reset" class="btn btn-secondary">Limpiar</button>
-            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button type="submit" name="agregar" id="agregar" class="btn btn-primary">Agregar</button>
           </div>
         </form>
 
@@ -182,23 +196,23 @@
 
 
   <!-- Modal 2 -->
-  <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalLabelEditar" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content bg-dark">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar usuario</h5>
+          <h5 class="modal-title" id="modalLabelEditar">Editar usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form>
+        <form method="post" action="">
 
           <div class="modal-body">
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputNombre" class="form-label-sm">Nombre</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombre">
+              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombreAgregar">
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputApellido">Apellido</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellido">
+              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellidoAgregar">
             </div>
 
             <div class="form-group mx-sm-5 mb-2">
