@@ -243,7 +243,7 @@ if (isset($_POST['buscador'])) {
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputPassword">Contraseña</label>
-              <input type="password" name="contraseña" class="form-control form-control-sm pw" id="inputPassword" placeholder="Contraseña" required>
+              <input type="password" name="contraseña" class="form-control form-control-sm" id="inputPassword" placeholder="Contraseña" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -293,13 +293,13 @@ if (isset($_POST['buscador'])) {
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputPasswordEditar">Contraseña</label>
-              <input type="password" class="form-control form-control-sm pw" id="inputPasswordEditar" placeholder="Contraseña" name="contraseña" minlength="8" required>
+              <input type="password" class="form-control form-control-sm" id="inputPasswordEditar" placeholder="Contraseña" name="contraseña" minlength="8" required>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <button type="reset" class="btn btn-secondary">Limpiar</button>
-            <button type="submit" name="modificar" class="btn btn-primary" onClick="validarCampos()">Editar</button>
+            <button type="submit" name="modificar" class="btn btn-primary">Editar</button>
           </div>
         </form>
 
@@ -401,6 +401,26 @@ if (isset($_POST['buscador'])) {
     }
 
     function rutAgregar(texto) {
+      //Validar password si tiene mayuscula y números
+      let campoContraseña = document.querySelector("#inputPassword").value
+
+      var numeros = "0123456789";
+
+      function tiene_numeros(texto) {
+        for (i = 0; i < texto.length; i++) {
+          if (numeros.indexOf(texto.charAt(i), 0) != -1) {
+            return 1;
+          }
+        }
+        return 0;
+      }
+
+      if (tiene_numeros(campoContraseña) != 1) {
+        alert("Ingrese una clave con números")
+        return false
+      }
+
+
       var tmpstr = "";
       for (i = 0; i < texto.length; i++)
         if (texto.charAt(i) != ' ' && texto.charAt(i) != '.' && texto.charAt(i) != '-')
@@ -518,6 +538,27 @@ if (isset($_POST['buscador'])) {
     }
 
     function rutEditar(texto) {
+      //Validar password si tiene mayuscula y números
+      let campoContraseña = document.querySelector("#inputPasswordEditar").value
+
+      var numeros = "0123456789";
+
+      function tiene_numeros(texto) {
+        for (i = 0; i < texto.length; i++) {
+          if (numeros.indexOf(texto.charAt(i), 0) != -1) {
+            return 1;
+          }
+        }
+        return 0;
+      }
+
+      if (tiene_numeros(campoContraseña) != 1) {
+        alert("Ingrese una clave con números")
+        return false
+      }
+
+
+
       var tmpstr = "";
       for (i = 0; i < texto.length; i++)
         if (texto.charAt(i) != ' ' && texto.charAt(i) != '.' && texto.charAt(i) != '-')
@@ -574,13 +615,9 @@ if (isset($_POST['buscador'])) {
       return false;
     }
 
-  //Validar password si tiene mayuscula y números
-  function validarCampos() {
-    let campoContraseña = document.querySelector(".pw")
-    console.log(campoContraseña)
+    function eliminarCampo() {
 
-  }
-
+    }
   </script>
 
 
