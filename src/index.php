@@ -25,7 +25,7 @@
       <img class="logoTipo" src="../public/img/logo.jpg" alt="">
 
       <div class="header">
-        <a href="./login.html">
+        <a href="./login.php">
           <button class="login">Iniciar Sesion</button>
         </a>
 

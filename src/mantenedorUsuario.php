@@ -1,10 +1,48 @@
 <?php
 
+if (!empty($_GET[''])) {
+}
+
 if (isset($_GET['mensaje'])) {
   $mensaje = $_GET['mensaje'];
 } else {
   $mensaje = '';
 }
+
+if (isset($_GET['nombre'])) {
+  $nombre = $_GET['nombre'];
+} else {
+  $nombre = '';
+}
+
+// if (!empty($_POST['buscador'])) {
+if (isset($_POST['buscador'])) {
+  include("../Recursos/Clases/usuario.php");
+
+  $nombre = $_POST['buscador'];
+
+
+  $params = array(
+    'nombre' => $nombre
+  );
+
+  $user = json_decode($usuario->buscar($params));
+} else if ($nombre != '') {
+  include("../Recursos/Clases/usuario.php");
+
+  $nombre = $_GET['nombre'];
+
+
+  $params = array(
+    'nombre' => $nombre
+  );
+
+  $usuario = json_decode($usuario->buscar($params));
+  $user[] = $usuario[0];
+} else {
+  $user = [];
+}
+
 
 ?>
 
@@ -110,7 +148,7 @@ if (isset($_GET['mensaje'])) {
                 <span>Email</span>
               </th>
               <th class="theader">
-                <span>Contrasena</span>
+                <span>Contraseña</span>
               </th>
               <th class="theader">
                 <span>Acciones</span>
@@ -123,56 +161,43 @@ if (isset($_GET['mensaje'])) {
 
             <?php
 
+            foreach ($user as $us) {
 
-            if (isset($_POST['buscador'])) {
-              include("../Recursos/Clases/usuario.php");
-
-
-              $nombre = $_POST['buscador'];
-              $params = array(
-                'nombre' => $nombre
-              );
-
-              $user = json_decode($usuario->buscar($params));
-
-              foreach ($user as $us) {
-
-                if (!($us->email == "")) {
+              if (!($us->email == "")) {
 
             ?>
-                  <tr class="tableInfo">
-                    <td>
-                      <span><?php echo $us->nombre ?></span>
-                    </td>
-                    <td>
-                      <span><?php echo $us->apellido ?></span>
-                    </td>
-                    <td>
-                      <span><?php echo $us->email ?></span>
-                    </td>
-                    <td>
-                      <span><?php echo $us->contraseña ?></span>
-                    </td>
-                    <td>
-                      <div class="button">
+                <tr class="tableInfo">
+                  <td>
+                    <span><?php echo $us->nombre ?></span>
+                  </td>
+                  <td>
+                    <span><?php echo $us->apellido ?></span>
+                  </td>
+                  <td>
+                    <span><?php echo $us->email ?></span>
+                  </td>
+                  <td>
+                    <span><?php echo $us->contraseña ?></span>
+                  </td>
+                  <td>
+                    <div class="button">
 
-                        <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" onClick='botonEditar("<?php echo $us->id . "&" . $us->nombre . "&" . $us->apellido . "&" . $us->email . "&" . $us->contraseña  ?>")'>
-                          Editar
+                      <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" onClick='botonEditar("<?php echo $us->id . "&" . $us->nombre . "&" . $us->apellido . "&" . $us->email . "&" . $us->contraseña  ?>")'>
+                        Editar
+                      </button>
+
+                      <form class="formButtonDelete" method="post" action="../Recursos/Funciones/usuarioFx.php">
+                        <input type="hidden" name="id" value="<?php echo $us->id ?>">
+                        <button class="buttonDelete" type="submit" name="eliminar">
+                          <img class="imgDelete" src="../public/img/delete.svg">
                         </button>
+                      </form>
+                    </div>
 
-                        <form class="formButtonDelete" method="post" action="../Recursos/Funciones/usuarioFx.php">
-                          <input type="hidden" name="id" value="<?php echo $us->id ?>">
-                          <button class="buttonDelete" type="submit" name="eliminar">
-                            <img class="imgDelete" src="../public/img/delete.svg">
-                          </button>
-                        </form>
-                      </div>
-
-                    </td>
-                  </tr>
+                  </td>
+                </tr>
 
             <?php
-                }
               }
             }
 

@@ -42,7 +42,8 @@ class Usuario extends Conexion
             $info = array(
                 'estado' => true,
                 'mensaje' => "Usuario agregado correctamente.",
-                'id' => $ultimoUsuario
+                'id' => $ultimoUsuario,
+                'nombre' => $nombre
             );
         } else {
             $info = array(
