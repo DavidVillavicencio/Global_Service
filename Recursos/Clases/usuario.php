@@ -21,14 +21,15 @@ class Usuario extends Conexion
         $consultaUsuario->close();
 
         if ($cuantos == 0) {
-            $sqlGuardar = "INSERT INTO usuarios (nombre,apellido,email,contraseña)
-                            VALUES (?,?,?,?);";
+            $sqlGuardar = "INSERT INTO usuarios (nombre,apellido,email,contraseña,rut)
+                            VALUES (?,?,?,?,?);";
             $guardarUsuario = $this->prepare($sqlGuardar);
             $nombre = $data['nombre'];
             $apellido = $data['apellido'];
             $email = $data['email'];
             $contraseña = $data['contraseña'];
-            $guardarUsuario->bind_param('ssss', $nombre, $apellido, $email, $contraseña);
+            $rut = $data['rut'];
+            $guardarUsuario->bind_param('sssss', $nombre, $apellido, $email, $contraseña, $rut);
             $guardarUsuario->execute();
             $guardarUsuario->close();
 
@@ -57,7 +58,7 @@ class Usuario extends Conexion
     function buscar()
     {
         $data = (count(func_get_args()) > 0) ? func_get_args()[0] : func_get_args();
-        $sql = "SELECT id,nombre,apellido,email,contraseña
+        $sql = "SELECT id,nombre,apellido,email,contraseña,rut
                      FROM usuarios WHERE nombre=?;";
         $consultaUsuario = $this->prepare($sql);
         $consultaUsuario->bind_param('s', $nombre);
@@ -73,6 +74,7 @@ class Usuario extends Conexion
                     'apellido' => utf8_encode($fila['apellido']),
                     'email' => utf8_encode($fila['email']),
                     'contraseña' => utf8_encode($fila['contraseña']),
+                    'rut' => utf8_encode($fila['rut']),
                 );
             };
         } else {
@@ -82,6 +84,7 @@ class Usuario extends Conexion
                 'apellido'  => "",
                 'email'  => "",
                 'contraseña'  => "",
+                'rut'  => "",
             );
         }
 
@@ -100,14 +103,15 @@ class Usuario extends Conexion
         $consultaUsuario->close();
 
         if ($cuantos == 1) {
-            $sqlModificar = "UPDATE usuarios SET nombre=?,apellido=?,email=?,contraseña=? WHERE id=?;";
+            $sqlModificar = "UPDATE usuarios SET nombre=?,apellido=?,email=?,contraseña=?,rut=? WHERE id=?;";
             $modificar = $this->prepare($sqlModificar);
             $nombre = $data['nombre'];
             $apellido = $data['apellido'];
             $email = $data['email'];
             $contraseña = $data['contraseña'];
+            $rut = $data['rut'];
             $id = intval($data['id']);
-            $modificar->bind_param('ssssi', $nombre, $apellido, $email, $contraseña, $id);
+            $modificar->bind_param('sssssi', $nombre, $apellido, $email, $contraseña, $rut, $id);
             $modificar->execute();
             $modificar->close();
 

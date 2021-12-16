@@ -139,6 +139,9 @@ if (isset($_POST['buscador'])) {
           <thead>
             <tr>
               <th class="theader">
+                <span>Rut</span>
+              </th>
+              <th class="theader">
                 <span>Nombre </span>
               </th>
               <th class="theader">
@@ -146,9 +149,6 @@ if (isset($_POST['buscador'])) {
               </th>
               <th class="theader">
                 <span>Email</span>
-              </th>
-              <th class="theader">
-                <span>Contraseña</span>
               </th>
               <th class="theader">
                 <span>Acciones</span>
@@ -168,6 +168,9 @@ if (isset($_POST['buscador'])) {
             ?>
                 <tr class="tableInfo">
                   <td>
+                    <span><?php echo $us->rut ?></span>
+                  </td>
+                  <td>
                     <span><?php echo $us->nombre ?></span>
                   </td>
                   <td>
@@ -177,12 +180,9 @@ if (isset($_POST['buscador'])) {
                     <span><?php echo $us->email ?></span>
                   </td>
                   <td>
-                    <span><?php echo $us->contraseña ?></span>
-                  </td>
-                  <td>
                     <div class="button">
 
-                      <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" onClick='botonEditar("<?php echo $us->id . "&" . $us->nombre . "&" . $us->apellido . "&" . $us->email . "&" . $us->contraseña  ?>")'>
+                      <button class="buttonEdit" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" onClick='botonEditar("<?php echo $us->rut . "&" . $us->id . "&" . $us->nombre . "&" . $us->apellido . "&" . $us->email . "&" . $us->contraseña  ?>")'>
                         Editar
                       </button>
 
@@ -219,26 +219,31 @@ if (isset($_POST['buscador'])) {
           <h5 class="modal-title" id="modalLabelAgregar">Agregar usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="post" action="../Recursos/Funciones/usuarioFx.php">
+        <form method="post" name="form1" onSubmit="javascript:return Rut(document.form1.rut.value)" action="../Recursos/Funciones/usuarioFx.php">
 
           <div class="modal-body">
             <div class="form-group mx-sm-5 mb-2">
+              <label for="inputRut">Rut (sin guión y sin coma)</label>
+              <input type="text" class="form-control form-control-sm" id="inputRut" placeholder="Rut" name="rut" minlength="8" maxlength="9" required>
+            </div>
+
+            <div class="form-group mx-sm-5 mb-2">
               <label for="inputNombre" class="form-label-sm">Nombre</label>
-              <input class="form-control form-control-sm" type="text" name="nombre" placeholder="Nombre" id="inputNombre">
+              <input class="form-control form-control-sm" type="text" name="nombre" placeholder="Nombre" id="inputNombre" required>
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputApellido">Apellido</label>
-              <input class="form-control form-control-sm" type="text" name="apellido" placeholder="Apellido" id="inputApellido">
+              <input class="form-control form-control-sm" type="text" name="apellido" placeholder="Apellido" id="inputApellido" required>
             </div>
 
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputEmail">Email</label>
-              <input type="email" name="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailHelp" placeholder="Email@email.com">
+              <input type="email" name="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailHelp" placeholder="Email@email.com" required>
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group mx-sm-5 mb-2">
               <label for="inputPassword">Contraseña</label>
-              <input type="password" name="contraseña" class="form-control form-control-sm" id="inputPassword" placeholder="Contraseña">
+              <input type="password" name="contraseña" class="form-control form-control-sm" id="inputPassword" placeholder="Contraseña" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -268,22 +273,27 @@ if (isset($_POST['buscador'])) {
             <input type="hidden" name="id" id="inputIdEditar">
 
             <div class="form-group mx-sm-5 mb-2">
-              <label for="inputNombre" class="form-label-sm">Nombre</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombreEditar" name="nombre">
-            </div>
-            <div class="form-group mx-sm-5 mb-2">
-              <label for="inputApellido">Apellido</label>
-              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellidoEditar" name="apellido">
+              <label for="inputRutEditar">Rut</label>
+              <input type="text" class="form-control form-control-sm" id="inputRutEditar" placeholder="Rut" name="rut" minlength="8" maxlength="9" required>
             </div>
 
             <div class="form-group mx-sm-5 mb-2">
-              <label for="inputEmail">Email</label>
-              <input type="email" class="form-control form-control-sm" id="inputEmailEditar" aria-describedby="emailHelp" placeholder="Email@email.com" name="email">
+              <label for="inputNombreEditar" class="form-label-sm">Nombre</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Nombre" id="inputNombreEditar" name="nombre" required>
+            </div>
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputApellidoEditar">Apellido</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Apellido" id="inputApellidoEditar" name="apellido" required>
+            </div>
+
+            <div class="form-group mx-sm-5 mb-2">
+              <label for="inputEmailEditar">Email</label>
+              <input type="email" class="form-control form-control-sm" id="inputEmailEditar" aria-describedby="emailHelp" placeholder="Email@email.com" name="email" required>
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group mx-sm-5 mb-2">
-              <label for="inputPassword">Contraseña</label>
-              <input type="password" class="form-control form-control-sm" id="inputPasswordEditar" placeholder="Contraseña" name="contraseña">
+              <label for="inputPasswordEditar">Contraseña</label>
+              <input type="password" class="form-control form-control-sm" id="inputPasswordEditar" placeholder="Contraseña" name="contraseña" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -309,8 +319,9 @@ if (isset($_POST['buscador'])) {
     }
 
     let valor;
-
     function botonEditar(valor) {
+
+      let rutEditar = document.querySelector("#inputRutEditar")
       let idEditar = document.querySelector("#inputIdEditar")
       let nombreEditar = document.querySelector("#inputNombreEditar")
       let apellidoEditar = document.querySelector("#inputApellidoEditar")
@@ -319,12 +330,130 @@ if (isset($_POST['buscador'])) {
 
       let arrayButonEdit = valor.split("&")
 
-      idEditar.setAttribute("value", arrayButonEdit[0])
-      nombreEditar.setAttribute("value", arrayButonEdit[1])
-      apellidoEditar.setAttribute("value", arrayButonEdit[2])
-      emailEditar.setAttribute("value", arrayButonEdit[3])
-      passwEditar.setAttribute("value", arrayButonEdit[4])
+      rutEditar.setAttribute("value", arrayButonEdit[0])
+      idEditar.setAttribute("value", arrayButonEdit[1])
+      nombreEditar.setAttribute("value", arrayButonEdit[2])
+      apellidoEditar.setAttribute("value", arrayButonEdit[3])
+      emailEditar.setAttribute("value", arrayButonEdit[4])
+      passwEditar.setAttribute("value", arrayButonEdit[5])
 
+    }
+
+    // Validador de Rut
+    function revisarDigito(dvr) {
+      dv = dvr + ""
+      if (dv != '0' && dv != '1' && dv != '2' && dv != '3' && dv != '4' && dv != '5' && dv != '6' && dv != '7' && dv != '8' && dv != '9' && dv != 'k' && dv != 'K') {
+        alert("Debe ingresar un digito verificador valido");
+        window.document.form1.rut.focus();
+        window.document.form1.rut.select();
+        return false;
+      }
+      return true;
+    }
+
+    function revisarDigito2(crut) {
+      largo = crut.length;
+      if (largo < 2) {
+        alert("Debe ingresar el rut completo")
+        window.document.form1.rut.focus();
+        window.document.form1.rut.select();
+        return false;
+      }
+      if (largo > 2)
+        rut = crut.substring(0, largo - 1);
+      else
+        rut = crut.charAt(0);
+      dv = crut.charAt(largo - 1);
+      revisarDigito(dv);
+
+      if (rut == null || dv == null)
+        return 0
+
+      var dvr = '0'
+      suma = 0
+      mul = 2
+
+      for (i = rut.length - 1; i >= 0; i--) {
+        suma = suma + rut.charAt(i) * mul
+        if (mul == 7)
+          mul = 2
+        else
+          mul++
+      }
+      res = suma % 11
+      if (res == 1)
+        dvr = 'k'
+      else if (res == 0)
+        dvr = '0'
+      else {
+        dvi = 11 - res
+        dvr = dvi + ""
+      }
+      if (dvr != dv.toLowerCase()) {
+        alert("EL rut es incorrecto")
+        window.document.form1.rut.focus();
+        window.document.form1.rut.select();
+        return false
+      }
+
+      return true
+    }
+
+    function Rut(texto) {
+      var tmpstr = "";
+      for (i = 0; i < texto.length; i++)
+        if (texto.charAt(i) != ' ' && texto.charAt(i) != '.' && texto.charAt(i) != '-')
+          tmpstr = tmpstr + texto.charAt(i);
+      texto = tmpstr;
+      largo = texto.length;
+
+      if (largo < 2) {
+        alert("Debe ingresar el rut completo")
+        window.document.form1.rut.focus();
+        window.document.form1.rut.select();
+        return false;
+      }
+
+      for (i = 0; i < largo; i++) {
+        if (texto.charAt(i) != "0" && texto.charAt(i) != "1" && texto.charAt(i) != "2" && texto.charAt(i) != "3" && texto.charAt(i) != "4" && texto.charAt(i) != "5" && texto.charAt(i) != "6" && texto.charAt(i) != "7" && texto.charAt(i) != "8" && texto.charAt(i) != "9" && texto.charAt(i) != "k" && texto.charAt(i) != "K") {
+          alert("El valor ingresado no corresponde a un R.U.T valido");
+          window.document.form1.rut.focus();
+          window.document.form1.rut.select();
+          return false;
+        }
+      }
+
+      var invertido = "";
+      for (i = (largo - 1), j = 0; i >= 0; i--, j++)
+        invertido = invertido + texto.charAt(i);
+      var dtexto = "";
+      dtexto = dtexto + invertido.charAt(0);
+      dtexto = dtexto + '-';
+      cnt = 0;
+
+      for (i = 1, j = 2; i < largo; i++, j++) {
+        //alert("i=[" + i + "] j=[" + j +"]" );		
+        if (cnt == 3) {
+          dtexto = dtexto + '.';
+          j++;
+          dtexto = dtexto + invertido.charAt(i);
+          cnt = 1;
+        } else {
+          dtexto = dtexto + invertido.charAt(i);
+          cnt++;
+        }
+      }
+
+      invertido = "";
+      for (i = (dtexto.length - 1), j = 0; i >= 0; i--, j++)
+        invertido = invertido + dtexto.charAt(i);
+
+      window.document.form1.rut.value = invertido.toUpperCase()
+
+      if (revisarDigito2(texto))
+        return true;
+
+      return false;
     }
   </script>
 

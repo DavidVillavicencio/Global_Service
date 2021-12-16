@@ -3,17 +3,20 @@
 include("../Clases/usuario.php");
 
 if (isset($_POST['agregar'])) {
+  
 
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
   $email = $_POST['email'];
   $contraseña = $_POST['contraseña'];
+  $rut = $_POST['rut'];
 
   $params = array(
     'nombre' => $nombre,
     'apellido' => $apellido,
     'email' => $email,
     'contraseña' => $contraseña,
+    'rut' => $rut
   );
 
   $respuesta = json_decode($usuario->agregar($params));
@@ -61,6 +64,7 @@ if (isset($_POST['modificar'])) {
   $apellido = $_POST['apellido'];
   $email = $_POST['email'];
   $contraseña = $_POST['contraseña'];
+  $rut = $_POST['rut'];
 
   $params = array(
     'id' => $id,
@@ -68,6 +72,7 @@ if (isset($_POST['modificar'])) {
     'apellido' => $apellido,
     'email' => $email,
     'contraseña' => $contraseña,
+    'rut' => $rut,
   );
 
   $respuesta = json_decode($usuario->modificar($params));
