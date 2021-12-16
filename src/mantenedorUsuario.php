@@ -219,7 +219,7 @@ if (isset($_POST['buscador'])) {
           <h5 class="modal-title" id="modalLabelAgregar">Agregar usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="post" name="form1" onSubmit="javascript:return Rut(document.form1.rut.value)" action="../Recursos/Funciones/usuarioFx.php">
+        <form method="post" name="form1" onSubmit="javascript:return rutAgregar(document.form1.rut.value)" action="../Recursos/Funciones/usuarioFx.php">
 
           <div class="modal-body">
             <div class="form-group mx-sm-5 mb-2">
@@ -266,7 +266,7 @@ if (isset($_POST['buscador'])) {
           <h5 class="modal-title" id="modalLabelEditar">Editar usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="post" name="form2" onSubmit="javascript:return Rut(document.form2.rut.value)" action="../Recursos/Funciones/usuarioFx.php">
+        <form method="post" name="form2" onSubmit="javascript:return rutEditar(document.form2.rut.value)" action="../Recursos/Funciones/usuarioFx.php">
 
           <div class="modal-body">
 
@@ -391,7 +391,7 @@ if (isset($_POST['buscador'])) {
         dvr = dvi + ""
       }
       if (dvr != dv.toLowerCase()) {
-        alert("EL rut es incorrecto")
+        alert("El rut es incorrecto")
         window.document.form1.rut.focus();
         window.document.form1.rut.select();
         return false
@@ -400,7 +400,7 @@ if (isset($_POST['buscador'])) {
       return true
     }
 
-    function Rut(texto) {
+    function rutAgregar(texto) {
       var tmpstr = "";
       for (i = 0; i < texto.length; i++)
         if (texto.charAt(i) != ' ' && texto.charAt(i) != '.' && texto.charAt(i) != '-')
@@ -517,7 +517,7 @@ if (isset($_POST['buscador'])) {
       return true
     }
 
-    function Rut(texto) {
+    function rutEditar(texto) {
       var tmpstr = "";
       for (i = 0; i < texto.length; i++)
         if (texto.charAt(i) != ' ' && texto.charAt(i) != '.' && texto.charAt(i) != '-')
