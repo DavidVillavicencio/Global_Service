@@ -3,7 +3,7 @@
 include("../Clases/usuario.php");
 
 if (isset($_POST['agregar'])) {
-  
+
 
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
@@ -34,28 +34,28 @@ if (isset($_POST['agregar'])) {
   header('location:../../src/mantenedorUsuario.php?mensaje=' . $mensaje . '&nombre=' . $respuesta->nombre);
 }
 
-// if (isset($_POST['buscador'])) {
+if (isset($_POST['buscador'])) {
+  session_start();
 
-//   session_start();
+  $email = $_POST['email'];
+  $contraseña = $_POST['password'];
 
-//   $nombre = $_POST['nomUsuario'];
-//   $params = array(
-//     'nombre' => $nombre
-//   );
+  $params = array(
+    'email' => $email,
+    'contraseña' => $contraseña
+  );
 
-//   $user = json_decode($usuario->buscar($params));
+  $user = json_decode($usuario->buscarLogin($params));
 
-//   $datos = count($user);
+  var_dump($user);
 
-
-//   if ($datos = 0) {
-//     $mensaje = '<p class="alert alert-danger"><b>No existe este usuario </b></p>';
-//     header('location:../../src/mantenedorUsuario.php?mensaje=' . $mensaje);
-//   } else {
-//     $_SESSION['mantenedorUsuario'] = $user;
-//     header('location:../../src/mantenedorUsuario.php');
-//   }
-// }
+  if (empty($user[0])) {
+    $mensaje = '<p class="alert alert-danger"><b>No existe este usuario </b></p>';
+    header('location:../../src/login.php?mensaje=' . $mensaje);
+  } else {
+    header('location:../../src/perfilUsuario.php');
+  }
+}
 
 if (isset($_POST['modificar'])) {
 

@@ -21,9 +21,15 @@
 
   <div class="container">
 
+    <header>
+      <a href="./">
+        <img src="../public/img/back.png" alt="Volver">
+      </a>
+
+      <img class="logoTipo" src="../public/img/logo.jpg" alt="">
+    </header>
 
     <section>
-
       <form action="post">
         <fieldset>
           <legend>Un Mundo de Conocimiento, registrate para comenzar</legend>

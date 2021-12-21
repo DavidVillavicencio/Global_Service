@@ -18,9 +18,17 @@
 
 <body>
   <div class="container">
+    <header>
+      <a href="./">
+        <img src="../public/img/back.png" alt="Volver">
+      </a>
+
+      <img class="logoTipo" src="../public/img/logo.jpg" alt="">
+
+    </header>
 
     <section>
-      <form action="post">
+      <form action="../Recursos/Funciones/usuarioFx.php" method="post">
         <legend>Iniciar sesión</legend>
         <fieldset>
           <label for="email">
@@ -30,10 +38,11 @@
 
           <label for="pass">
             <input type="password" name="password" id="password" placeholder="Contraseña" required>
-
           </label>
 
-          <button type="submit">Entrar</button>
+          <input type="hidden">
+
+          <button type="submit" name="buscador">Entrar</button>
         </fieldset>
       </form>
     </section>

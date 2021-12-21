@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  
+
   <div class="container">
 
 
@@ -29,7 +29,7 @@
           <button class="login">Iniciar Sesion</button>
         </a>
 
-        <a href="./registrar.html">
+        <a href="./registrar.php">
           <button class="registrarse">Registrarse</button>
         </a>
       </div>

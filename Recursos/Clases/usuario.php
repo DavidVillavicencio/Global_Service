@@ -90,6 +90,7 @@ class Usuario extends Conexion
 
         return json_encode($info);
     }
+
     function modificar()
     {
         $data = (count(func_get_args()) > 0) ? func_get_args()[0] : func_get_args();
@@ -157,6 +158,36 @@ class Usuario extends Conexion
                 'mensaje' => "No lo lograste D:"
             );
         }
+        return json_encode($info);
+    }
+
+    function buscarLogin()
+    {
+        $data = (count(func_get_args()) > 0) ? func_get_args()[0] : func_get_args();
+        $sql = "SELECT id,nombre,apellido,email,contraseña,rut
+                     FROM usuarios WHERE email=? and contraseña=?;";
+        $consultaUsuario = $this->prepare($sql);
+        $consultaUsuario->bind_param('ss', $email, $contraseña);
+        $email = $data['email'];
+        $contraseña = $data['contraseña'];
+        $this->execute($consultaUsuario);
+        $user = $consultaUsuario->get_result();
+
+        if ($user->num_rows > 0) {
+            while ($fila = $user->fetch_assoc()) {
+                $info[] = array(
+                    'id' => $fila['id'],
+                    'nombre' => utf8_encode($fila['nombre']),
+                    'apellido' => utf8_encode($fila['apellido']),
+                    'email' => utf8_encode($fila['email']),
+                    'contraseña' => utf8_encode($fila['contraseña']),
+                    'rut' => utf8_encode($fila['rut']),
+                );
+            };
+        } else {
+            $info[] = array();
+        }
+
         return json_encode($info);
     }
 }
