@@ -10,13 +10,15 @@ if (isset($_POST['agregar'])) {
   $email = $_POST['email'];
   $contraseña = $_POST['contraseña'];
   $rut = $_POST['rut'];
+  $userAdmin = $_POST['userAdmin'];
 
   $params = array(
     'nombre' => $nombre,
     'apellido' => $apellido,
     'email' => $email,
     'contraseña' => $contraseña,
-    'rut' => $rut
+    'rut' => $rut,
+    'userAdmin' => $userAdmin
   );
 
   $respuesta = json_decode($usuario->agregar($params));
@@ -49,12 +51,12 @@ if (isset($_POST['buscador'])) {
 
   var_dump($user);
 
-  if (empty($user[0])) {
-    $mensaje = '<p class="alert alert-danger"><b>No existe este usuario </b></p>';
-    header('location:../../src/login.php?mensaje=' . $mensaje);
-  } else {
-    header('location:../../src/perfilUsuario.php');
-  }
+  // if (empty($user[0])) {
+  //   $mensaje = '<p class="alert alert-danger"><b>No existe este usuario </b></p>';
+  //   header('location:../../src/login.php?mensaje=' . $mensaje);
+  // } else {
+  //   header('location:../../src/perfilUsuario.php');
+  // }
 }
 
 if (isset($_POST['modificar'])) {

@@ -245,6 +245,9 @@ if (isset($_POST['buscador'])) {
               <label for="inputPassword">Contraseña</label>
               <input type="password" name="contraseña" class="form-control form-control-sm" id="inputPassword" placeholder="Contraseña" required>
             </div>
+
+            <input type="hidden" name="userAdmin" value="no">
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

@@ -11,7 +11,7 @@ class Usuario extends Conexion
     function agregar()
     {
         $data = (count(func_get_args()) > 0) ? func_get_args()[0] : func_get_args();
-        $sql = "SELECT count(id) as cuantos FROM usuarios WHERE email = ?;";   //aqui podria ser en vez de id el email, considerandolo unico, como clave unica.
+        $sql = "SELECT count(id) as cuantos FROM usuarios WHERE email = ?;";
         $consultaUsuario = $this->prepare($sql);
         $consultaUsuario->bind_param('s', $email);
         $email = $data['email'];
@@ -21,15 +21,16 @@ class Usuario extends Conexion
         $consultaUsuario->close();
 
         if ($cuantos == 0) {
-            $sqlGuardar = "INSERT INTO usuarios (nombre,apellido,email,contraseña,rut)
-                            VALUES (?,?,?,?,?);";
+            $sqlGuardar = "INSERT INTO usuarios (nombre,apellido,email,contraseña,rut,userAdmin)
+                            VALUES (?,?,?,?,?,?);";
             $guardarUsuario = $this->prepare($sqlGuardar);
             $nombre = $data['nombre'];
             $apellido = $data['apellido'];
             $email = $data['email'];
             $contraseña = $data['contraseña'];
             $rut = $data['rut'];
-            $guardarUsuario->bind_param('sssss', $nombre, $apellido, $email, $contraseña, $rut);
+            $userAdmin = $data['userAdmin'];
+            $guardarUsuario->bind_param('ssssss', $nombre, $apellido, $email, $contraseña, $rut, $userAdmin);
             $guardarUsuario->execute();
             $guardarUsuario->close();
 
@@ -44,7 +45,7 @@ class Usuario extends Conexion
                 'estado' => true,
                 'mensaje' => "Usuario agregado correctamente.",
                 'id' => $ultimoUsuario,
-                'nombre' => $nombre
+                'nombre' => $nombre,
             );
         } else {
             $info = array(

@@ -40,8 +40,6 @@
             <input type="password" name="password" id="password" placeholder="Contraseña" required>
           </label>
 
-          <input type="hidden">
-
           <button type="submit" name="buscador">Entrar</button>
         </fieldset>
       </form>
